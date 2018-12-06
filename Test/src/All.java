@@ -14331,3 +14331,563 @@ public class DisplayEndButton extends Application{
     }
 }
 ******************************************************
+Polyline FX
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.shape.Polyline;
+
+/**
+ *  This is an example display how to display a polyline with the
+ *  points (x0,y0), (x1,y1), ..., and (xn,yn) using constructors
+ *  Polyline(x0,y0, x1,y1), Polyline(x0,y0, x1,y1, x2,y2), and so on.
+ *
+ *  The example is adapted from
+ *  <a href="https://www.tutorialspoint.com/javafx/javafx_2d_shapes.htm">
+ *  www.tutorialspoint.com</a>.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class DrawPolyline extends Application{
+
+    /**
+     *  @param stage The window to be displayed.
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+        //Creating a line object 
+        Polyline polyline = new Polyline(210,10, 10,210, 410,210); 
+         
+        /* Alternatively, create an empty polyline by
+         *  Polyline polyline = new Polyline(); 
+         * and then add the 3 points:
+         *  polyline.getPoints().addAll(new Double[]{
+         *  210.0,10.0,
+         *  10.0,210.0,
+         *  410.0,210.0);
+         */
+         
+        // Create a Group (scene graph) with the line as single element.
+        Group root = new Group(polyline);
+        // The scene consists of just one group.
+        Scene scene = new Scene(root, 600, 300);
+
+        // Give the stage (window) a title and add the scene.
+        stage.setTitle("Polyline");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to launch the application.
+     */
+    public static void main(String[] args) { 
+        launch(args);
+    }
+}
+****************************************************************
+DrawLine JavaFx
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.shape.Line;
+
+/**
+ *  This is an example how to display a straigh line with the
+ *  two end points (x1,y1) and (x2,y2) with the constructor
+ *  Line(x1,y1, x2,y2).
+ *
+ *  The example is adapted from
+ *  <a href="https://www.tutorialspoint.com/javafx/javafx_application.htm">
+ *  www.tutorialspoint.com</a>.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class DrawLine extends Application{
+
+    /**
+     *  @param stage The window to be displayed.
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+        //Creating a line object 
+        Line line = new Line(100,150, 500,180); 
+         
+        /* Alternatively, create an empty line by
+         *  Line line = new Line(); 
+         * and then set the 4 values:
+         *  line.setStartX(100.0); 
+         *  line.setStartY(150.0); 
+         *  line.setEndX(500.0); 
+         *  line.setEndY(180.0); 
+         */
+         
+        // Create a Group (scene graph) with the line as single element.
+        Group root = new Group(line);
+        // The scene consists of just one group.
+        Scene scene = new Scene(root, 600, 300);
+
+        // Give the stage (window) a title and add the scene.
+        stage.setTitle("Line");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to launch the application. If not present, start
+     *  will be executed.
+     */
+    /*    public static void main(String[] args) { 
+     *   launch(args);
+     *}
+     */
+}
+************************************************
+SimplePolygon Java FX
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.shape.Polygon;
+import javafx.scene.paint.Color; 
+
+/**
+ *  This is an example display how to display a polygon with the
+ *  points (x0,y0), (x1,y1), ..., and (xn,yn) using constructors
+ *  Polygon(x0,y0, x1,y1), Polygon(x0,y0, x1,y1, x2,y2), and so on.
+ *  The main difference between a polygon and a polyline is that the
+ *  polygon is closed, that is, there is a straight line from the last
+ *  point (xn,yn) to the zeroth (x0,y0).
+ *
+ *  The example is adapted from
+ *  <a href="https://www.tutorialspoint.com/javafx/2dshapes_polygon.htm">
+ *  www.tutorialspoint.com</a>.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class DrawSimplePolygon extends Application{
+
+    /**
+     *  @param stage The window to be displayed.
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+        //Creating a line object 
+        Polygon polygon = new Polygon(210,10, 10,210, 410,210); 
+        /* Alternatively, create an empty polygon by
+         *  Polygon polygon = new Polygon(); 
+         * and then add the 3 points:
+         *  polygon.getPoints().addAll(new Double[]{
+         *  210.0,10.0,
+         *  10.0,210.0,
+         *  410.0,210.0});
+         */
+
+        // Without the following command the polygon would be fully black.
+        polygon.setFill(null);
+        /* After setting the fill colour to null the polygon would be
+         * invisible unless the stroke colour is explicitly set.
+         */
+        polygon.setStroke(Color.BLACK);
+         
+        // Create a Group (scene graph) with the polygon as single element.
+        Group root = new Group(polygon);
+        // The scene consists of just one group.
+        Scene scene = new Scene(root, 600, 300);
+
+        // Give the stage (window) a title and add the scene.
+        stage.setTitle("Polygon");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to launch the application.
+     */
+    public static void main(String[] args) { 
+        launch(args);
+    }
+}
+*********************************************
+DrawRectangle JavaFx
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Color; 
+
+
+/**
+ *  This is an example display a rectangle with sides parallel 
+ *  to the x- or y-axes.
+ *
+ *  The example is adapted from
+ *  <a href="https://www.tutorialspoint.com/javafx/2dshapes_rectangle.htm">
+ *  www.tutorialspoint.com</a>.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class DrawRectangle extends Application{
+
+    /**
+     * <pre>
+     *  The method starts the graphics for a particular window.
+     *  The constructor for a Rectangle takes 4 parameters: 
+     *  - the x-coordinate of the left upper corner 
+     *  - the y-coordinate of the left upper corner 
+     *  - the width
+     *  - the height
+     *
+     *   A rectangle is created.
+     *   (20,30)            100
+     *      +---------------------------------+
+     *      |                                 |
+     *      |                                 |
+     *      |                                 |
+     *  50  |                                 |
+     *      |                                 |
+     *      |                                 |
+     *      |                                 |
+     *      +---------------------------------+
+     *  </pre>
+     *
+     *  The scene takes as arguments a scene graph, the width (in
+     *  pixels), and the height (in pixels).
+     *  @param stage The window to be displayed.
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+        Rectangle rectangle = new Rectangle(20, 30, 100, 50);
+        rectangle.setFill(Color.BLUE);
+        //Creating a scene graph, consisting of the rectangle only. 
+        Group root = new Group(rectangle);
+        //The scene containing one scene graph
+        Scene scene = new Scene(root, 600, 300);
+        stage.setTitle("Rectangle");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to launch the application.
+     */
+    public static void main(String[] args) { 
+        launch(args);
+    }
+}
+*********************************************
+Draw RegularPolygon
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.shape.Polygon;
+import javafx.scene.paint.Color; 
+
+/**
+ *  This is an example how to create and display regular polygons.
+ *
+ *  The example is adapted from
+ *  <a href="https://www.tutorialspoint.com/javafx/2dshapes_polygon.htm">
+ *  www.tutorialspoint.com</a>.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class DrawRegularPolygons extends Application{
+    public static Polygon[] polygons;
+
+    /**
+     *  A regular polygon with vertices number edges and corners is created.
+     *  @param vertices The number of vertices (which is also the number of edges).
+     *  @param rotation The counterclockwise rotation of the polygon, e.g., with Math.PI/2 the polygon is rotated by 90 degrees.
+     *  @param scale Without a scale greater than 1 the whole polygon is only a single pixel.
+     *  @param xOffset The amount of pixels the polygon is moved on the x-axis to the right.
+     *  @param yOffset The amount of pixels the polygon is moved on the y-axis down.
+     *  @return The regular polygon defined by the parameters above.
+     */   
+    public static Polygon makePolygon(int vertices, double rotation, double scale, double xOffset, double yOffset) {
+	Double[] coordinates = new Double[2*vertices];
+
+        /* Define a one-dimensional array that can be used to make
+         * a polygon (or a polyline). In a polygon the edges are closed.
+         * Here all vertices are equally distributed on a circle.
+         */
+	for (int i = 0; i< vertices; i++){
+            coordinates[2*i] = xOffset + 
+                scale * Math.cos(rotation + 2*i*Math.PI/vertices);
+            coordinates[2*i+1] = yOffset + 
+                scale * Math.sin(rotation + 2*i*Math.PI/vertices);
+        }
+
+        // Create an empty polygon
+        Polygon polygon = new Polygon();
+        // Add the points specified by the coordinates
+        polygon.getPoints().addAll(coordinates);
+        // Without the following command the polygon would be fully black.
+        polygon.setFill(null);
+        /* After setting the fill colour to null the polygon would be
+         * invisible unless the stroke colour is explicitly set.
+         */
+        polygon.setStroke(Color.BLACK);
+        return polygon;
+    }
+    
+    /**
+     *  @param stage The window to be displayed.
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+         
+        // Create a Group (scene graph) with the polygons as elements.
+        Group root = new Group();
+        for (Polygon polygon : polygons) {
+            root.getChildren().add(polygon);
+        }
+        
+        // The scene consists of just one group.
+        Scene scene = new Scene(root, 600, 300);
+
+        // Give the stage (window) a title and add the scene.
+        stage.setTitle("Polygons");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to launch the application.
+     */
+    public static void main(String[] args) { 
+        Polygon polygon1 = makePolygon( 7, 0.0, 100.0, 130.0, 130.0);
+        Polygon polygon2 = makePolygon(12, 0.3,  80.0, 330.0, 130.0);
+        Polygon[] poly = {polygon1, polygon2};
+        polygons = poly;
+        launch(args);
+    }
+}
+*******************************************************************
+Draw Eclipse JavaFx
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.paint.Color; 
+
+/**
+ *  This is an example how to display a circle and an ellipse.
+ *
+ *  The example is adapted from
+ *  <a href="https://www.tutorialspoint.com/javafx/javafx_2d_shapes.htm">
+ *  www.tutorialspoint.com</a>.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class DrawCircleEllipse extends Application{
+
+    /**
+     *  A circle is defined by the coordinates of the center and the
+     *  radius.
+     *
+     *  Likewise an ellipse is defined by the coordinates of the
+     *  centre the radiusX and the radiusY.
+     *
+     *  @param stage The window to be displayed.
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+        Circle circle = new Circle(200, 150, 100);
+        circle.setFill(Color.BLUE);
+        Ellipse ellipse = new Ellipse(400, 150, 150, 100);
+        // Without the following command the ellipse would be fully black.
+        ellipse.setFill(null);
+        /* After setting the fill colour to null the polygon would be
+         * invisible unless the stroke colour is explicitly set.
+         */
+        ellipse.setStroke(Color.BLACK);
+
+        //Creating a scene graph, consisting of the circle and the ellipse. 
+        Group root = new Group(circle, ellipse);
+        //The scene containing one scene graph
+        Scene scene = new Scene(root, 600, 300);
+        stage.setTitle("Circle and Ellipse");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to launch the application.
+     */
+    public static void main(String[] args) { 
+        launch(args);
+    }
+}
+
+
+
+*********************************************************************
+Colour JavaFx
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.text.Text;
+import javafx.scene.text.Font; 
+import javafx.scene.text.FontPosture; 
+import javafx.scene.text.FontWeight;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Color; 
+
+
+/**
+ * In this class, we test predefined colours. Some are predefined by
+ * constants such such as BLACK, RED and so on. They can also be
+ * defined by Color(r,g,b) where r,g,b are values between 0 and
+ * 255. r=red, g=green, and b=blue. 0,0,0 stands for black, 255,0,0
+ * for red, 0,255,0 for green, and 0,0,255 blue with other values in
+ * between. Values such as 100,100,100 represent different levels of grey.
+ *
+ *  The example is adapted from
+ *  <a href="https://www.tutorialspoint.com/javafx/javafx_colors.htm">
+ *  www.tutorialspoint.com</a>.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class Colour extends Application{
+
+    /**
+     *  @param stage The window to be displayed.
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+        //Setting text colours to blue, red, and green.
+        Text blue = new Text(20.0,30.0, "Blue");
+        Text red = new Text(20.0,70.0, "Red");
+        Text green = new Text(20.0,110.0, "Green");
+        blue.setFill(Color.BLUE); blue.setFont(Font.font("verdana", 30));
+        red.setFill(Color.RED); red.setFont(Font.font("verdana", 30));
+        green.setFill(Color.GREEN); green.setFont(Font.font("verdana", 30));
+        // Create a Group (scene graph) with the text as single element.
+        Group root = new Group(blue,red,green);
+
+        int[]      r = {0,255,  0,  0,255,255,  0,255,255,255,200,128, 64, 32,164};
+        int[]      g = {0,  0,255,  0,200,175,255,  0,255,255,200,128, 64, 32,255};
+        int[]      b = {0,  0,  0,255,  0,175,255,255,  0,255,200,128, 64, 32, 64};
+        boolean[] bg = {false,false,false,false,false,false,false,false,true,true,false,false,false,false,false};
+
+        for (int i = 0; i < 15; i++){
+            Text text = new Text(120.0,30.0+ 40*i, String.format("rgb(%d,%d,%d)", r[i], g[i], b[i]));
+            Color colour = Color.rgb(r[i],g[i],b[i]);
+            text.setFill(colour); text.setFont(Font.font("verdana", 30));
+            if (bg[i]) {
+                Rectangle rect = new Rectangle(120.0,40*i, 2000, 40);
+                rect.setFill(Color.BLACK);
+                root.getChildren().add(rect);
+
+            }
+            root.getChildren().add(text);
+        }
+
+         
+        // The scene consists of just one group.
+        Scene scene = new Scene(root, 600, 700);
+
+        // Give the stage (window) a title and add the scene.
+        stage.setTitle("Text");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to launch the application.
+     */
+    public static void main(String[] args) { 
+        launch(args);
+    }
+}
+
+     
+*****************************************************************
+GridJava Fx
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color; 
+
+/**
+ *  This is an example of to display a two-dimensional array of zeroes, ones, and twos as big coloured dots.
+ *
+ *  @version 2018-08-28
+ *  @author Manfred Kerber
+ */
+public class Grid extends Application{
+    /**
+     *  grid is the static variable that is used to store the
+     *  2-dimensional array to be displayed by coloured dots.
+     */
+    private static int[][] grid;
+    /** OFFSET moves the board on the x-axis and y-axis out of the left upper corner.
+     *  It is also used as the distance between the centres of two adjacent circles.
+     */
+    public static final int OFFSET = 90;
+    /** RADIUS is the radius of the circles.
+     */
+    public static final int radius = 40;
+
+    /**
+     *  @param stage The window to be displayed.
+     */
+   @Override
+    public void start(Stage stage) throws Exception {
+        Group root = new Group();
+        for (int i = 0; i< grid.length; i++) {
+            for (int j = 0; j< grid[i].length; j++) {
+                Circle circle = new Circle(OFFSET+j*OFFSET,OFFSET+i*OFFSET, radius);
+                if (grid[i][j] == 1) {
+                    circle.setFill(Color.GREEN);
+                } else if (grid[i][j] == 2) {
+                    circle.setFill(Color.RED);
+                }
+                root.getChildren().add(circle);
+            }
+        }
+
+        //Creating a scene graph, consisting of the circles. 
+        //The scene containing one scene graph
+        int SCENE_WIDTH  = OFFSET + OFFSET * (grid[0].length + 1);
+        int SCENE_HEIGHT = OFFSET + OFFSET * (grid.length + 2);
+        Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
+        stage.setTitle("Dots");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /*
+     *  main method to initialize a matrix and to launch the application.
+     */
+    public static void main(String[] args) {
+                int[][] grid1 = {{0,1,0,1,1},
+                                 {1,2,0,0,1},
+                                 {1,1,0,1,2,1}};
+                grid = grid1;
+        launch(args);
+     }
+}
+**********************************************************************
+
+
+
+
+
