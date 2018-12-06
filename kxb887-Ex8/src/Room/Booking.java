@@ -1,11 +1,21 @@
 package Room;
 
 /**
- *
- * @author Xxxxx
+ * Class to use for Booking
+ * 
+ * @version 5/12/18
+ * @author Kam Bansal
  */
 public class Booking {
 
+	/**
+	 * Constructor
+	 * 
+	 * @param date    date of booking
+	 * @param roomId  room id
+	 * @param hour    hour of booking
+	 * @param purpose purpose of booking
+	 */
 	public Booking(Date date, String roomId, int hour, String purpose) {
 		this.date = date;
 		this.roomId = roomId;

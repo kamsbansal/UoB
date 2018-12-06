@@ -3,8 +3,10 @@ package Room;
 import java.util.HashMap;
 
 /**
- *
- * @author Xxxx
+ * Class for room booking
+ * 
+ * @version 5.12.18
+ * @author Kam Bansal
  */
 public class RoomBooking {
 
@@ -25,6 +27,16 @@ public class RoomBooking {
 	// key=room+date+hour, value=Booking
 	private HashMap<String, Booking> bookingMap;
 
+	/**
+	 * Method to book a room
+	 * 
+	 * @param room    room
+	 * @param date    date in which to book room
+	 * @param hour    hour the room is to be booked for
+	 * @param purpose purpose for the room
+	 * @return return book
+	 */
+
 	public boolean book(String room, Date date, int hour, String purpose) {
 		String id = room.trim() + date.toString().trim() + hour;
 		if (bookingMap.containsKey(id)) {
@@ -42,6 +54,13 @@ public class RoomBooking {
 		}
 	}
 
+	/**
+	 * Method to cancel booking
+	 * 
+	 * @param room room
+	 * @param date date of which room was booked to cancel
+	 * @param hour hour of the booked room
+	 */
 	public void cancel(String room, Date date, int hour) {
 		String id = room.trim() + date.toString().trim() + hour;
 		if (bookingMap.containsKey(id)) {
@@ -54,6 +73,12 @@ public class RoomBooking {
 		}
 	}
 
+	/**
+	 * String toString method to show booking as a table
+	 * 
+	 * @param date date
+	 * @return
+	 */
 	public String displayDay(Date date) {
 		String id;
 		StringBuilder builder = new StringBuilder();

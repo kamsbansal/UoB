@@ -8,8 +8,8 @@ package Room;
  * IllegalArgumentException is thrown. Note that we have not dealt with the
  * setters here, they would need corresponding checks.
  *
- * @version
- * @author
+ * @version 5/12/18
+ * @author Kam Bansal
  */
 public class Date {
 
