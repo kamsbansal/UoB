@@ -15670,7 +15670,197 @@ public class EmptyChessBoard extends Application{
 }
 
 *********************************************************************
+JavaFX Array
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;    
+import javax.xml.soap.Text;
+import java.util.ArrayList;
+import java.util.Random;
 
+    public class Main extends Application {    
+
+        @Override
+        public void start(Stage primaryStage) {
+
+            int SIZE = 10;
+            int length = SIZE;
+            int width = SIZE;
+
+            GridPane root = new GridPane();    
+
+            for(int y = 0; y < length; y++){
+                for(int x = 0; x < width; x++){
+
+                    Random rand = new Random();
+                    int rand1 = rand.nextInt(2);
+
+                    // Create a new TextField in each Iteration
+                    TextField tf = new TextField();
+                    tf.setPrefHeight(50);
+                    tf.setPrefWidth(50);
+                    tf.setAlignment(Pos.CENTER);
+                    tf.setEditable(false);
+                    tf.setText("(" + rand1 + ")");
+
+                    // Iterate the Index using the loops
+                    root.setRowIndex(tf,y);
+                    root.setColumnIndex(tf,x);    
+                    root.getChildren().add(tf);
+                }
+            }
+
+            Scene scene = new Scene(root, 500, 500);    
+            primaryStage.setTitle("Random Binary Matrix (JavaFX)");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+
+        public static void main(String[] args) {    
+            launch(args);
+        }    
+    }
+    
+    ********************************************************
+   JavaFX
+   public class NodeDemo extends Application {
+
+	    private double sceneWidth = 1024;
+	    private double sceneHeight = 768;
+
+	    private int n = 10;
+	    private int m = 10;
+
+	    double gridWidth = sceneWidth / n;
+	    double gridHeight = sceneHeight / m;
+
+	    MyNode[][] playfield = new MyNode[n][m];
+
+
+	    @Override
+	    public void start(Stage primaryStage) {
+
+
+	        Group root = new Group();
+
+	        // initialize playfield
+	        for( int i=0; i < n; i++) {
+	            for( int j=0; j < m; j++) {
+
+	                MyNode node = null;
+
+	                // create bug
+	                if( i == 0 && j == 0) {
+
+	                    node = new Bug( "Bug", Color.ORANGE, i, j);
+
+	                }
+	                // create food
+	                else if( i == 5 && j == 5) {
+
+	                    node = new Food( "Food", Color.GREEN, i, j);
+
+	                }
+	                // create obstacle
+	                else if( i == 3 && j == 3) {
+
+	                    node = new Obstacle( "Obstacle", Color.GRAY, i, j);
+
+	                } 
+
+	                // add node to group
+	                if( node != null) {
+
+	                    root.getChildren().add( node);
+
+	                    // add to playfield for further reference using an array
+	                    playfield[i][j] = node;
+
+	                }
+
+
+	            }
+	        }
+
+
+	        Scene scene = new Scene( root, sceneWidth, sceneHeight);
+
+	        primaryStage.setScene( scene);
+	        primaryStage.show();
+
+
+	        // move bugs
+	        animate();
+
+	    }
+
+	    private void animate() {
+	        // TODO
+	    }
+
+	    public static void main(String[] args) {
+	        launch(args);
+	    }
+
+	    private class Food extends MyNode {
+
+	        public Food(String name, Color color, double x, double y) {
+	            super(name, color, x, y);
+	        }
+
+
+	    }
+
+	    private class Obstacle extends MyNode {
+
+	        public Obstacle(String name, Color color, double x, double y) {
+	            super(name, color, x, y);
+	        }
+
+
+	    }
+
+	    private class Bug extends MyNode {
+
+	        public Bug(String name, Color color, double x, double y) {
+	            super(name, color, x, y);
+	        }
+
+
+	    }
+
+	    private class MyNode extends StackPane {
+
+	        public MyNode( String name, Color color, double x, double y) {
+
+	            // create rectangle
+	            Rectangle rectangle = new Rectangle( gridWidth, gridHeight);
+	            rectangle.setStroke( color);
+	            rectangle.setFill( color.deriveColor(1, 1, 1, 0.7));
+
+	            // create label
+	            Label label = new Label( name);
+
+	            // set position
+	            setTranslateX( x * gridWidth);
+	            setTranslateY( y * gridHeight);
+
+	            getChildren().addAll( rectangle, label);
+
+	        }
+
+	    }
+
+	}
+    ********************************
+    
+    
+    
 
 
 

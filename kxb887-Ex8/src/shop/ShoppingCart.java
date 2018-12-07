@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ShoppingCart {
 
-	private ArrayList<Product> cart;
+	ArrayList<Product> cart;
 
 	public ShoppingCart() {
 

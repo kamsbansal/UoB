@@ -132,3 +132,10 @@
 /is.class
 /shows$Exceptions.class
 /shows.class
+/ChessBoard.class
+/EmptyChessBoard.class
+/NodeDemo$Bug.class
+/NodeDemo$Food.class
+/NodeDemo$MyNode.class
+/NodeDemo$Obstacle.class
+/NodeDemo.class
