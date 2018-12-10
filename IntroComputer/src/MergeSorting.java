@@ -11,6 +11,26 @@ public class MergeSorting {
 		doMergeSort(0, length - 1);
 	}
 
+	static void printArray(int arr[]) {
+		int n = arr.length;
+		for (int i = 0; i < n; ++i)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+
+	public static void main(String args[]) {
+		int arr[] = { 4, 3, 2, 1 };
+
+		System.out.println("Given Array");
+		printArray(arr);
+
+		MergeSort ob = new MergeSort();
+		ob.sort(arr, 0, arr.length - 1);
+
+		System.out.println("\nSorted array");
+		printArray(arr);
+	}
+
 	private void doMergeSort(int lowerIndex, int higherIndex) {
 
 		if (lowerIndex < higherIndex) {
@@ -46,18 +66,6 @@ public class MergeSorting {
 			array[k] = tempMergArr[i];
 			k++;
 			i++;
-		}
-
-	}
-
-	public static void main(String a[]) {
-
-		int[] inputArr = { 45, 23, 11, 89, 77, 98, 4, 28, 65, 43 };
-		MergeSorting mms = new MergeSorting();
-		mms.sort(inputArr);
-		for (int i : inputArr) {
-			System.out.print(i);
-			System.out.print(" ");
 		}
 	}
 }
