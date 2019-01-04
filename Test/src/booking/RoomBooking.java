@@ -1,4 +1,4 @@
-package room;
+package booking;
 
 import java.util.HashMap;
 
