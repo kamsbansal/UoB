@@ -1,27 +1,59 @@
-/*
- * package booking;
- * 
- * public class Codes {
- * 
- * Sum of all numbers
- * 
- * Return (n * (n+1)) /2
- ** 
- * 
- * 
- * Factorial – product of all numbers If (n == 0 ) {
- * 
- * Return 1; (because factorial of 0! = 1 } Long fact = 1;
- * 
- * For (int I = o; I <=n; i++) { Fact = fact * I; } Return fact; }
- ** 
- * Fibonacci If (n ==0) { return 0; } else if (n==1) { return 1; } long nMinus1
- * = 1; long nMinus2 = 0; long fib = 0;
- * 
- * for (int I = 1; I < n; i++) { fib = (nMinus2 + nMinus 1); nMinus 2 = nMinus
- * 1; nMinus 1 = fib; } Return fib;
- * 
- * 
- * 
- * }
- */
+package booking;
+
+public class Codes {
+
+	public static int nSum(int n) {
+
+		return ((n * (n + 1)) / 2);
+
+	}
+
+	public static int factorial(int n) {
+		if (n == 0) {
+			return 0;
+		}
+		int fact = 1;
+		for (int i = 1; i <= n; i++) {
+			fact *= 1;
+		}
+		return fact;
+	}
+
+	public static long fibonacci(int n) {
+
+		if (n == 0) {
+			return 0;
+		} else if (n == 1) {
+
+			return 1;
+		}
+		int nMinus1 = 1;
+		int nMinus2 = 0;
+		int fib = 0;
+		for (int i = 1; i < n; i++) {
+
+			fib = (nMinus2 + nMinus1);
+			nMinus2 = nMinus1;
+			nMinus1 = fib;
+		}
+		return fib;
+
+	}
+
+	public static void Main(String[] args) {
+
+		for (int i = 0; i <= 10; i++) {
+			System.out.println(nSum(i));
+		}
+
+		for (int i = 0; i <= 10; i++) {
+			System.out.println(factorial(10));
+		}
+
+		for (int i = 0; i <= 10; i++) {
+			System.out.println(fibonacci(10));
+
+		}
+
+	}
+}
